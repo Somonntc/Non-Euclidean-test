@@ -10,6 +10,8 @@ public class PortalTextureSetup : MonoBehaviour
     public Material cameraMatB;
     public Camera cameraC;
     public Material cameraMatC;
+    public Camera cameraD;
+    public Material cameraMatD;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +32,11 @@ public class PortalTextureSetup : MonoBehaviour
         }
         cameraC.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
         cameraMatC.mainTexture = cameraC.targetTexture;
+
+        if(cameraD.targetTexture != null){
+            cameraD.targetTexture.Release();
+        }
+        cameraD.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
+        cameraMatD.mainTexture = cameraD.targetTexture;
     }
 }
